@@ -334,7 +334,7 @@ fi
 #####################
 SAPBITSDIR="/hana/data/sapbits"
 
-if [ "${hanapackage}" = "51053787" ]
+if [ "${hanapackage}" = "51054094" ]
 then 
   /usr/bin/wget --quiet $Uri/SapBits/${hanapackage}.ZIP
   cd $SAPBITSDIR
