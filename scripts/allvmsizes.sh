@@ -340,7 +340,7 @@ then
   cd $SAPBITSDIR
   mkdir ${hanapackage}
   cd ${hanapackage}
-  unzip ../${hanapackage}.ZIP
+  unzip ../${hanapackage}.zip
   cd $SAPBITSDIR
   #add additional requirement
   zypper install -y libatomic1
