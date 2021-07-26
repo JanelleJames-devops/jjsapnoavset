@@ -324,8 +324,8 @@ else
     then
       hanapackage="51053061"
     else
-      echo "not 51053061, default to 51052325"
-      hanapackage="51052325"
+      echo "not 51053061, default to 51053787"
+      hanapackage="51053787"
     fi
   fi
 fi
@@ -334,7 +334,7 @@ fi
 #####################
 SAPBITSDIR="/hana/data/sapbits"
 
-if [ "${hanapackage}" = "51054094" ]
+if [ "${hanapackage}" = "51053787" ]
 then 
   /usr/bin/wget --quiet $Uri/SapBits/${hanapackage}.ZIP
   cd $SAPBITSDIR
