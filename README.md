@@ -3,7 +3,7 @@ This ARM template is used to install SAP HANA on a single VM running SUSE SLES 1
 
 This template uses the Linux SKU for SAP. **We will be adding additional SKUs and Linux flavors in future Versions.** The template takes advantage of [Custom Script Extensions](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript) for the installation and configuration of the machine. This should be used only for demonstration and sandbox environments. This is not a production deployment.
 
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzureCAT-GSI%2FSAP-HANA-ARM%2Fmaster%2Fazuredeploy.json)
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FJanelleJames-devops%2FSAP-HANA-ARM-Deloitte%2Fmaster%2Fazuredeploy.json)
 ## Machine Info
 The template currently deploys HANA on one of the machines listed in the table below with the noted disk configuration.  The deployment takes advantage of Managed Disks, for more information on Managed Disks or the sizes of the noted disks can be found on [this](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#pricing-and-billing) page.
 
@@ -47,26 +47,26 @@ The Server Java Runtime Environment bits can be downloaded [here](http://www.ora
 
 There should be a folder inside your storage account container called SapBits:
 
-![SapBits Image](https://github.com/AzureCAT-GSI/SAP-HANA-ARM/blob/master/media/Structure1.png)
+![SapBits Image](https://github.com/JanelleJames-devops/SAP-HANA-ARM-Deloitte/blob/master/media/Structure1.png)
 
 The following files should be present inside the SapBits folder:
 
-![HANA Image](https://github.com/AzureCAT-GSI/SAP-HANA-ARM/blob/master/media/Structure2.png)
+![HANA Image](https://github.com/JanelleJames-devops/SAP-HANA-ARM-Deloitte/blob/master/media/Structure2.png)
 
 Additionally if you plan on installing the HANA Jumpbox, you should create a folder under the SapBits folder and add the following files:
-![HANA Studio Image](https://github.com/AzureCAT-GSI/SAP-HANA-ARM/blob/master/media/Structure3.png)
+![HANA Studio Image](https://github.com/JanelleJames-devops/SAP-HANA-ARM-Deloitte/blob/master/media/Structure3.png)
 
 ## Deploy the Solution
 ### Deploy from the Portal
 
-To deploy from the portal using a graphic interface you can use the [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzureCAT-GSI%2FSAP-HANA-ARM%2Fmaster%2Fazuredeploy.json) button to bring up the template in your subscription and fill out the parameters.
+To deploy from the portal using a graphic interface you can use the [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FJanelleJames-devops%2FSAP-HANA-ARM-Deloitte%2Fmaster%2Fazuredeploy.json) button to bring up the template in your subscription and fill out the parameters.
 
 ### Deploy from Powershell
 
 ```powershell
 New-AzureRmResourceGroup -Name HANADeploymentRG -Location "Central US"
 New-AzureRmResourceGroupDeployment -Name HANADeployment -ResourceGroupName HANADeploymentRG `
-  -TemplateUri https://raw.githubusercontent.com/AzureCAT-GSI/SAP-HANA-ARM/master/azuredeploy.json `
+  -TemplateUri https://raw.githubusercontent.com/JanelleJames-devops/SAP-HANA-ARM-Deloitte/master/azuredeploy.json `
   -VMName HANAtestVM -HANAJumpbox yes -CustomURI https://yourBlobName.blob.core.windows.net/yourContainerName -VMPassword AweS0me@PW
 ```
 
@@ -78,7 +78,7 @@ az group create --name HANADeploymentRG --location "Central US"
 az group deployment create \
     --name HANADeployment \
     --resource-group HANADeploymentRG \
-    --template-uri "https://raw.githubusercontent.com/AzureCAT-GSI/SAP-HANA-ARM/master/azuredeploy.json" \
+    --template-uri "https://raw.githubusercontent.com/JanelleJames-devops/SAP-HANA-ARM-Deloitte/master/azuredeploy.json" \
     --parameters VMName=HANAtestVM HANAJumpbox=yes CustomURI=https://yourBlobName.blob.core.windows.net/yourContainerName VMPassword=AweS0me@PW
 ```
 ## Monitoring
@@ -114,19 +114,19 @@ SMT Uri | No | The URI to a subscription management server if used, blank otherw
 
 ## Known issues
 ### When clicking on Deploy to Azure you get redirected to an empty directory
-![Directories](https://github.com/AzureCAT-GSI/SAP-HANA-ARM/blob/master/media/directories.png)
+![Directories](https://github.com/JanelleJames-devops/SAP-HANA-ARM-Deloitte/blob/master/media/directories.png)
 
 The only way to get around this is to save the template to your own template library. Click on "Create a Resource" and choose "Template Deployment". Click "Create".
 
-![Directories2](https://github.com/AzureCAT-GSI/SAP-HANA-ARM/blob/master/media/directories2.png)
+![Directories2](https://github.com/JanelleJames-devops/SAP-HANA-ARM-Deloitte/blob/master/media/directories2.png)
 
 Select the option of "Build your own template in the editor"
 
-![Directories3](https://github.com/AzureCAT-GSI/SAP-HANA-ARM/blob/master/media/directories3.png)
+![Directories3](https://github.com/JanelleJames-devops/SAP-HANA-ARM-Deloitte/blob/master/media/directories3.png)
 
-Copy the contents from the azuredeploy.json [file](https://raw.githubusercontent.com/AzureCAT-GSI/SAP-HANA-ARM/master/azuredeploy.json) and paste them into the template editor, click Save.
+Copy the contents from the azuredeploy.json [file](https://raw.githubusercontent.com/JanelleJames-devops/SAP-HANA-ARM-Deloitte/master/azuredeploy.json) and paste them into the template editor, click Save.
 
-![Directories4](https://github.com/AzureCAT-GSI/SAP-HANA-ARM/blob/master/media/directories4.png)
+![Directories4](https://github.com/JanelleJames-devops/SAP-HANA-ARM-Deloitte/blob/master/media/directories4.png)
 
 The template is now available in your template library. Changes made to the github repo will not be replicated, make sure to update your template when changes to the azuredeploy.json file are made.
 
