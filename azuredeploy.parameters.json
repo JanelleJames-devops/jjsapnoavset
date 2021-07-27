@@ -3,13 +3,13 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "VMName": {
-            "value": "testVm"
+            "value": "jmj121"
         },
         "HANAJumpbox": {
-            "value": "yes"
+            "value": "no"
         },
         "VMSize": {
-            "value": "Standard_GS5 (448 GB, Certified)"
+            "value": "Standard_M128s (2 TB, Certified)"
         },
         "NetworkName": {
             "value": "ra-sap-hana-vnet"
@@ -30,10 +30,10 @@
             "value": "10.0.6.0/24"
         },
         "customURI": {
-            "value": "https://yourblobname.blob.core.windows.net/yourContainerName"            
+            "value": "https://jmjazurestorage1.blob.core.windows.net/sapmediastaging"            
         },
         "VMUserName": {
-            "value": "testuser"
+            "value": "usa-jjames"
         },
         "VMPassword": {
             "value": "YourPassword"
