@@ -324,8 +324,8 @@ else
     then
       hanapackage="51053061"
     else
-      echo "not 51053061, default to 51052325"
-      hanapackage="51052325"
+      echo "not 51053061, default to 51053787"
+      hanapackage="51053787"
     fi
   fi
 fi
@@ -334,13 +334,13 @@ fi
 #####################
 SAPBITSDIR="/hana/data/sapbits"
 
-if [ "${hanapackage}" = "51054094" ]
+if [ "${hanapackage}" = "51053787" ]
 then 
-  /usr/bin/wget --quiet $Uri/SapBits/${hanapackage}.ZIP
+  /usr/bin/wget --quiet $Uri/SapBits/${hanapackage}.zip
   cd $SAPBITSDIR
   mkdir ${hanapackage}
   cd ${hanapackage}
-  unzip ../${hanapackage}.ZIP
+  unzip ../${hanapackage}.zip
   cd $SAPBITSDIR
   #add additional requirement
   zypper install -y libatomic1
@@ -367,7 +367,7 @@ fi
 cd /hana/data/sapbits
 echo "hana download start" >> /tmp/parameter.txt
 /usr/bin/wget --quiet $Uri/SapBits/md5sums
-/usr/bin/wget --quiet "https://raw.githubusercontent.com/AzureCAT-GSI/SAP-HANA-ARM/master/hdbinst.cfg"
+/usr/bin/wget --quiet "https://raw.githubusercontent.com/JanelleJames-devops/SAP-HANA-ARM-Deloitte/master/hdbinst.cfg"
 echo "hana download end" >> /tmp/parameter.txt
 
 date >> /tmp/testdate
