@@ -47,19 +47,19 @@ The Server Java Runtime Environment bits can be downloaded [here](http://www.ora
 
 There should be a folder inside your storage account container called SapBits:
 
-![SapBits Image](https://github.com/JanelleJames-devops/SAP-HANA-ARM-Deloitte/blob/master/media/Structure1.png)
+![SapBits Image](https://github.com/JanelleJames-devops/SAP-HANA-ARM-Deloitte/blob/fixtemplate/media/Structure1.png)
 
 The following files should be present inside the SapBits folder:
 
 ![HANA Image](https://github.com/JanelleJames-devops/SAP-HANA-ARM-Deloitte/blob/master/media/Structure2.png)
 
 Additionally if you plan on installing the HANA Jumpbox, you should create a folder under the SapBits folder and add the following files:
-![HANA Studio Image](https://github.com/JanelleJames-devops/SAP-HANA-ARM-Deloitte/blob/master/media/Structure3.png)
+![HANA Studio Image](https://github.com/JanelleJames-devops/SAP-HANA-ARM-Deloitte/blob/fixtemplate/media/Structure3.png)
 
 ## Deploy the Solution
 ### Deploy from the Portal
 
-To deploy from the portal using a graphic interface you can use the [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FJanelleJames-devops%2FSAP-HANA-ARM-Deloitte%2Fmaster%2Fazuredeploy.json) button to bring up the template in your subscription and fill out the parameters.
+To deploy from the portal using a graphic interface you can use the [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FJanelleJames-devops%2FSAP-HANA-ARM-Deloitte%2Ffixtemplate%2Fazuredeploy.json) button to bring up the template in your subscription and fill out the parameters.
 
 ### Deploy from Powershell
 
