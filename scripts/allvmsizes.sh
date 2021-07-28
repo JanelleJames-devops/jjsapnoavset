@@ -234,7 +234,7 @@ echo "/dev/mapper/logvg-loglv /hana/log xfs defaults 0 0" >> /etc/fstab
 echo "logicalvols end" >> /tmp/parameter.txt
 fi
 
-if [ $VMSIZE == "Standard_M128ms" || [ $VMSIZE == "Standard_M208ms_v2" ]; then
+if [ $VMSIZE == "Standard_M128ms" ] || [ $VMSIZE == "Standard_M208ms_v2" ]; then
 
   # this assumes that 6 disks are attached at lun 0 through 5
   echo "Creating partitions and physical volumes"
@@ -336,10 +336,10 @@ SAPBITSDIR="/hana/data/sapbits"
 
 if [ "${hanapackage}" = "51053787" ]
 then 
-  /usr/bin/wget --quiet $Uri/SapBits/${hanapackage}.zip
   cd $SAPBITSDIR
   mkdir ${hanapackage}
   cd ${hanapackage}
+  /usr/bin/wget --quiet $Uri/SapBits/${hanapackage}.zip
   unzip ../${hanapackage}.zip
   cd $SAPBITSDIR
   #add additional requirement
