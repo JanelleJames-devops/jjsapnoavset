@@ -1,3 +1,4 @@
+#!/bin/bash
 set -x
 
 Uri=${1}
