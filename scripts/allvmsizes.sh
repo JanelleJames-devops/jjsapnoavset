@@ -341,7 +341,7 @@ then
   mkdir ${hanapackage}
   cd ${hanapackage}
   /usr/bin/wget --quiet $Uri/SapBits/${hanapackage}.zip
-  unzip ../${hanapackage}.zip
+  unzip ./${hanapackage}.zip
   cd $SAPBITSDIR
   #add additional requirement
   zypper install -y libatomic1
