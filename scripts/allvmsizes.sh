@@ -37,12 +37,13 @@ else
     then
       hanapackage="51053061"
     else
+    echo "not 5105361"
       if [ "$HANAVER" = "SAP HANA PLATFORM EDITION 2.0 SPS04 REV40 (51053787)" ]
       then
         hanapackage="51053787"
       else
-        echo "not 51053061, default to 51052325"
-        hanapackage="51052325"
+        echo "not 51053787, default to 51054623"
+        hanapackage="51054623"
       fi
     fi
   fi
@@ -325,8 +326,8 @@ else
     then
       hanapackage="51053061"
     else
-      echo "not 51053061, default to 51053787"
-      hanapackage="51053787"
+      echo "not 51053061, default to 51054623"
+      hanapackage="51054623"
     fi
   fi
 fi
@@ -335,13 +336,13 @@ fi
 #####################
 SAPBITSDIR="/hana/data/sapbits"
 
-if [ "${hanapackage}" = "51053787" ]
+if [ "${hanapackage}" = "51054623" ]
 then 
   cd $SAPBITSDIR
   mkdir ${hanapackage}
   cd ${hanapackage}
-  /usr/bin/wget --quiet $Uri/SapBits/${hanapackage}.zip
-  unzip ./${hanapackage}.zip
+  /usr/bin/wget --quiet $Uri/SapBits/${hanapackage}.ZIP
+  unzip ./${hanapackage}.ZIP
   cd $SAPBITSDIR
   #add additional requirement
   zypper install -y libatomic1
