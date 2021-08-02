@@ -329,7 +329,7 @@ else
     if [ "$HANAVER" = "SAP HANA PLATFORM EDITION 2.0 SPS03 REV30 (51053061)" ]
     then
       hanapackage="51053061"
-      if [ "$HANAVER = SAP HANA PLATFORM EDITION 2.0 SPS05 REV52 (51054623)" ]
+      if [ "$HANAVER" = "SAP HANA PLATFORM EDITION 2.0 SPS05 REV52 (51054623)" ]
         then
           hanapackage="51054623"
     else
