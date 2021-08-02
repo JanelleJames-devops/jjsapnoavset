@@ -42,7 +42,7 @@ else
         hanapackage="51053787"
         else
         echo "not 51053787"
-        if [ "$HANAVER = SAP HANA PLATFORM EDITION 2.0 SPS05 REV52 (51054623)" ]
+        if [ "$HANAVER" = "SAP HANA PLATFORM EDITION 2.0 SPS05 REV52 (51054623)" ]
         then
           hanapackage="51054623"
       else
