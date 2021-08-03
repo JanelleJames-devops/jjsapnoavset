@@ -32,22 +32,24 @@ else
   then
     hanapackage="51052325"
   else
-  echo "not 51052325"
+    echo "not 51052325"
     if [ "$HANAVER" = "SAP HANA PLATFORM EDITION 2.0 SPS03 REV30 (51053061)" ]
     then
       hanapackage="51053061"
     else
+      echo "not 5105361"
       if [ "$HANAVER" = "SAP HANA PLATFORM EDITION 2.0 SPS04 REV40 (51053787)" ]
       then
         hanapackage="51053787"
-        else
+      else
         echo "not 51053787"
         if [ "$HANAVER" = "SAP HANA PLATFORM EDITION 2.0 SPS05 REV52 (51054623)" ]
         then
           hanapackage="51054623"
-      else
-        echo "not 51053061, default to 51054623"
-        hanapackage="51054623"
+        else
+          echo "not 51053061, default to 51054623"
+          hanapackage="51054623"
+        fi
       fi
     fi
   fi
@@ -325,25 +327,29 @@ else
   then
     hanapackage="51052325"
   else
-  echo "not 51052325"
+    echo "not 51052325"
     if [ "$HANAVER" = "SAP HANA PLATFORM EDITION 2.0 SPS03 REV30 (51053061)" ]
     then
       hanapackage="51053061"
-      else
+    else
+      echo "not 5105361"
       if [ "$HANAVER" = "SAP HANA PLATFORM EDITION 2.0 SPS04 REV40 (51053787)" ]
       then
-      hanapackage="51053787"
+        hanapackage="51053787"
       else
-      echo "not 51053787"
+        echo "not 51053787"
         if [ "$HANAVER" = "SAP HANA PLATFORM EDITION 2.0 SPS05 REV52 (51054623)" ]
         then
           hanapackage="51054623"
-    else
-      echo "not 51053061, default to 51054623"
-      hanapackage="51054623"
+        else
+          echo "not 51053061, default to 51054623"
+          hanapackage="51054623"
+        fi
+      fi
     fi
   fi
 fi
+
 
 
 #####################
