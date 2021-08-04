@@ -130,7 +130,7 @@
         "api-version": "2017-06-01",
         "api-version-vm": "2017-12-01",
         "mode": "Push",
-        "baseUri": "https://raw.githubusercontent.com/JanelleJames-devops/SAP-HANA-ARM-Deloitte/master/",
+        "baseUri": "https://raw.githubusercontent.com/JanelleJames-devops/Deloitte-SAP-ARM/master/",
         "nicName": "[if (equals(parameters('IPAllocationMethod'),'Static'), concat(parameters('vmName'),'-static'), concat(parameters('vmName'),'-dynamic'))]",
         "subnetRef": "[parameters('HANASubnetRef')]",
         "OperatingSystemSpec": {

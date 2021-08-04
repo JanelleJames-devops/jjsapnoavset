@@ -311,7 +311,7 @@
             "dependsOn": [
                 "[concat('Microsoft.Network/virtualNetworks/', parameters('NetworkName'))]"
               ],
-            "properties": {
+            
                 "mode": "Incremental",
                 "templateLink": {
                     "uri": "[variables('mediumUri')]"
@@ -367,20 +367,21 @@
                         "value": "[parameters('SMTUri')]"
                     }
                 }
-            }
-        },
-        {
+            ]   
+            },
+            {
             "condition": "[or(equals(variables('vmSize'),'Standard_M64ms'),equals(variables('vmSize'),'Standard_M128s'))]",
             "apiVersion": "2016-09-01",
             "name": "[concat('LargeLinkedTemplate', parameters('VMName'))]",
             "type": "Microsoft.Resources/deployments",
             "dependsOn": [
                 "[concat('Microsoft.Network/virtualNetworks/', parameters('NetworkName'))]"
-              ],
-            "properties": {
+                ],
+                "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[variables('largeUri')]"
+                  
+                  "uri": "[variables('largeUri')]"
                 },
                 "parameters": {
                     "HanaVersion": {
