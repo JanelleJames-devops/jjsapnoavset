@@ -230,14 +230,14 @@
               }
             },
             {
-                "name": "[parameters('ManagementSubnetName')]",
-                "properties": {
-                  "addressPrefix": "[parameters('ManagementSubnetPrefix')]"
-                }
-              }
-          ]
-        }
-      },
+               "name": "[parameters('ManagementSubnetName')]",
+               "properties": {
+                 "addressPrefix": "[parameters('ManagementSubnetPrefix')]"
+               }
+            }
+         ]
+    }
+    },
           { 
             "condition": "[or(or(equals(variables('vmSize'),'Standard_E16s_v3'),equals(variables('vmSize'),'Standard_E32s_v3')), or(equals(variables('vmSize'),'Standard_E64s_v3'),equals(variables('vmSize'),'Standard_GS5')))]",
             "apiVersion": "2016-09-01",
@@ -247,7 +247,7 @@
                 "[concat('Microsoft.Network/virtualNetworks/', parameters('NetworkName'))]"
               ],
             "properties": {
-                "mode": "Incremental",
+              "mode": "Incremental",
                 "templateLink": {
                     "uri": "[variables('smallUri')]"
                 },
@@ -311,7 +311,7 @@
             "dependsOn": [
                 "[concat('Microsoft.Network/virtualNetworks/', parameters('NetworkName'))]"
               ],
-            
+            "properties": {
                 "mode": "Incremental",
                 "templateLink": {
                     "uri": "[variables('mediumUri')]"
@@ -367,9 +367,9 @@
                         "value": "[parameters('SMTUri')]"
                     }
                 }
-            ]   
-            },
-            {
+            }
+        },   
+        {
             "condition": "[or(equals(variables('vmSize'),'Standard_M64ms'),equals(variables('vmSize'),'Standard_M128s'))]",
             "apiVersion": "2016-09-01",
             "name": "[concat('LargeLinkedTemplate', parameters('VMName'))]",
