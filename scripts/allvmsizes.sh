@@ -355,7 +355,7 @@ fi
 #####################
 SAPBITSDIR="/hana/data/sapbits"
 
-if [ "${hanapackage}" = "51054623" ]
+if [ "${hanapackage}" = "51054623" ] || [ "${hanapackage}" = "51053787" ]
 then 
   cd $SAPBITSDIR
   mkdir ${hanapackage}
@@ -399,7 +399,7 @@ cd /hana/data/sapbits
 
 #!/bin/bash
 cd /hana/data/sapbits
-myhost=`hostname`
+myhost=$(hostname)
 sedcmd="s/REPLACE-WITH-HOSTNAME/$myhost/g"
 sedcmd2="s/\/hana\/shared\/sapbits\/51052325/\/hana\/data\/sapbits\/${hanapackage}/g"
 sedcmd3="s/root_user=root/root_user=$HANAUSR/g"
@@ -410,8 +410,8 @@ cat hdbinst.cfg | sed $sedcmd | sed $sedcmd2 | sed $sedcmd3 | sed $sedcmd4 | sed
 echo "hana preapre end" >> /tmp/parameter.txt
 
 #put host entry in hosts file using instance metadata api
-VMIPADDR=`curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/privateIpAddress?api-version=2017-08-01&format=text"`
-VMNAME=`hostname`
+VMIPADDR=$(curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/privateIpAddress?api-version=2017-08-01&format=text")
+VMNAME=$(hostname)
 cat >>/etc/hosts <<EOF
 $VMIPADDR $VMNAME
 EOF
