@@ -190,7 +190,7 @@ echo "/dev/mapper/logvg-loglv /hana/log xfs defaults 0 0" >> /etc/fstab
 echo "logicalvols end" >> /tmp/parameter.txt
 fi
 
-if [ $VMSIZE == "Standard_M64ms" ] || [ $VMSIZE == "Standard_M128s" ]; then
+if [ $VMSIZE == "Standard_M64ms" ] || [ $VMSIZE == "Standard_M128S" ]; then
 
   # this assumes that 6 disks are attached at lun 0 through 9
   echo "Creating partitions and physical volumes"
