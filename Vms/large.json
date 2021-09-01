@@ -152,7 +152,7 @@
             "log1": 511,
             "log2": 511
         },
-        "diskConfig_Standard_M128s": {
+        "diskConfig_Standard_M128S": {
             "shared": 1023,
             "sap": 63,
             "backup1": 2047,
