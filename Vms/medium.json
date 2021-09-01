@@ -1,5 +1,5 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "HanaVersion": {
@@ -7,13 +7,11 @@
             "metadata": {
                 "description": "Version of HANA"
             },
-            "defaultValue": "SAP HANA PLATFORM EDITION 2.0 SPS05 REV52 (51054623)",
+            "defaultValue": "SAP HANA Platform Edition 2.0 SPS02 (51052325)",
             "allowedValues": [
                 "SAP HANA PLATFORM EDITION 2.0 SPS01 REV 10 (51052030)",
                 "SAP HANA PLATFORM EDITION 2.0 SPS02 (51052325)",
-                "SAP HANA PLATFORM EDITION 2.0 SPS03 REV30 (51053061)",
-                "SAP HANA PLATFORM EDITION 2.0 SPS04 REV40 (51053787)",
-                "SAP HANA PLATFORM EDITION 2.0 SPS05 REV52 (51054623)"
+                "SAP HANA PLATFORM EDITION 2.0 SPS03 REV30 (51053061)"
             ]
         },   
         "vmName": {
@@ -132,7 +130,7 @@
         "api-version-vm": "2017-12-01",
         "vmPassword": "HANA07061992!",
         "mode": "Push",
-        "baseUri": "https://raw.githubusercontent.com/JanelleJames-devops/Deloitte-SAP-ARM/master/",
+        "baseUri": "https://raw.githubusercontent.com/AzureCAT-GSI/SAP-HANA-ARM/master/",
         "nicName": "[if(equals(parameters('IPAllocationMethod'),'Static'),concat(parameters('vmName'),'-static'),concat(parameters('vmName'),'-dynamic'))]",
         "subnetRef": "[parameters('HANAsubnetRef')]",
         "OperatingSystemSpec": {
@@ -152,19 +150,7 @@
             "data4": 1023,
             "log1": 511,
             "log2": 511
-        },
-        "diskConfig_Standard_M128s": {
-            "shared": 1023,
-            "sap": 127,
-            "backup1": 1023,
-            "backup2": 1023,
-            "data1": 1023,
-            "data2": 1023,
-            "data3": 1023,
-            "data4": 1023,
-            "log1": 511,
-            "log2": 511
-
+        }
     },
     "resources": [
         {
