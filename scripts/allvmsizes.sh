@@ -122,7 +122,7 @@ echo "logicalvols start" >> /tmp/parameter.txt
   vgcreate datavg $datavg1lun $datavg2lun $datavg3lun
   PHYSVOLUMES=3
   STRIPESIZE=64
-  lvcreate -i$PHYSVOLUMES -I$STRIPESIZE -l 70%FREE -n datalv datavg
+  lvcreate -i$PHYSVOLUMES -I$STRIPESIZE -l 60%FREE -n datalv datavg
   lvcreate -i$PHYSVOLUMES -I$STRIPESIZE -l 100%FREE -n loglv datavg
 
 
