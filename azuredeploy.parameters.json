@@ -9,7 +9,7 @@
             "value": "no"
         },
         "VMSize": {
-            "value": "Standard_M128s (2 TB, Certified)"
+            "value": "Standard_M128S (2 TB, Certified)"
         },
         "NetworkName": {
             "value": "ra-sap-hana-vnet"
@@ -39,7 +39,7 @@
             "value": "YourPassword"
                         },                    
         "OperatingSystem": {
-            "value":  "SLES for SAP 15 SP1"
+            "value":  "SLES for SAP 15"
         },
         "HANASID": {
             "value":  "H10"
