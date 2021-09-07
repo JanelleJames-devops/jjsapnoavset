@@ -43,7 +43,7 @@
                 "Standard_GS5 (448 GB, Certified)",
                 "Standard_M64s (1 TB, Certified)",
                 "Standard_M64ms (1.7 TB, Certified)",
-                "Standard_M128S (2 TB, Certified)",
+                "Standard_M128s (2 TB, Certified)",
                 "Standard_M128ms (3.8 TB, Certified)",
                 "Standard_E16s_v3 (128 GB)",
                 "Standard_E32s_v3 (256 GB)",
@@ -116,9 +116,9 @@
             "metadata": {
                 "description": "Operating system for HANA Machine"
             },
-            "defaultValue": "SLES for SAP 15 SP1",
+            "defaultValue": "SLES for SAP 15",
             "allowedValues": [
-                "SLES for SAP 15 SP1",
+                "SLES for SAP 15",
                 "SLES for SAP 12 SP3",
 		        "SLES for SAP 12 SP2",
                 "RHEL 7.2 for SAP HANA"
@@ -370,7 +370,7 @@
             }
         },   
         {
-            "condition": "[or(equals(variables('vmSize'),'Standard_M64ms'),equals(variables('vmSize'),'Standard_M128s'))]",
+            "condition": "[or(equals(variables('vmSize'),'Standard_M64ms'),equals(variables('vmSize'),'Standard_M128S'))]",
             "apiVersion": "2016-09-01",
             "name": "[concat('LargeLinkedTemplate', parameters('VMName'))]",
             "type": "Microsoft.Resources/deployments",
