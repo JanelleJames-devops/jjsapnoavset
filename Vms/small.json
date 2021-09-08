@@ -164,21 +164,13 @@
             "data2": 720,
             "data3": 720
         },
-        "diskConfig_Standard_M128s": {
-            "shared": 511,
-            "sap": 63,
-            "backup": 1023,
-            "data1": 511,
-            "data2": 511,
-            "data3": 511
-        },
         "diskConfig_Standard_GS5": {
             "shared": 511,
             "sap": 63,
             "backup": 1023,
-            "data1": 511,
-            "data2": 511,
-            "data3": 511
+            "data1": 746,
+            "data2": 746,
+            "data3": 746
         }
     },
     "resources": [
