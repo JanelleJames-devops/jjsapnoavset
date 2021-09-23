@@ -28,6 +28,7 @@
             "metadata": {
                 "description": "Choose whether to deploy a VM with HANA Studio installed"
             },
+            "defaultValue": "no",
             "allowedValues": [
                 "yes",
                 "no"
@@ -54,48 +55,48 @@
             "type": "string",
             "defaultValue": "ra-sap-hana-vnet",
             "metadata": {
-                "description": "The HANA VNET"
+                "description": "VNet name to create or name of existing one to join"
             }
         },
         "addressPrefixes": {
             "type": "string",
             "defaultValue": "10.0.0.0/16",
             "metadata": {
-                "description": "The HANA VNET prefix"
+                "description": "The VNET prefix"
             }
         },
         "HANASubnetName": {
             "type": "string",
             "defaultValue": "SAPDataSubnet",
             "metadata": {
-                "description": "The data subnet name"
+                "description": "Subnet name to create or name of existing one to join"
             }
         },
         "HANASubnetPrefix": {
             "type": "string",
             "defaultValue": "10.0.5.0/24",
             "metadata": {
-                "description": "The data subnet prefix"
+                "description": "The subnet prefix"
             }
         },
         "ManagementSubnetName": {
             "type": "string",
-            "defaultValue": "SAPMgmtSubnet",
+            "defaultValue": "",
             "metadata": {
-                "description": "The management subnet name"
+                "description": "The management subnet name - blank if no Hana jumpbox"
             }
         },
         "ManagementSubnetPrefix": {
             "type": "string",
-            "defaultValue": "10.0.6.0/24",
+            "defaultValue": "",
             "metadata": {
-                "description": "The management subnet prefix"
+                "description": "The management subnet prefix - blank if no Hana jumpbox"
             }
         },
         "customURI": {
             "type": "string",
             "metadata": {
-                "description": "URI where SAP bits are uploaded"
+                "description": "URI to the SapBits folder container where SAP bits have been uploaded"
             }
         },
         "VMUserName": {
@@ -141,7 +142,7 @@
         "ExistingNetworkResourceGroup": {
             "type": "string",
             "metadata": {
-                "description": "Type in the name of the Resource Group for an existing network or leave no to use the same one"
+                "description": "Type in the name of the Resource Group where the pre-existing VNET resides or leave no to use the new same one"
             },
             "defaultValue": "no"
         },
