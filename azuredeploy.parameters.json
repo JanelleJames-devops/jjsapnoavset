@@ -9,7 +9,7 @@
             "value": "no"
         },
         "VMSize": {
-            "value": "Standard_M128s (2 TB, Certified)"
+            "value": "Standard_M64s (1 TB, Certified)"
         },
         "NetworkName": {
             "value": "ra-sap-hana-vnet"
