@@ -67,14 +67,14 @@ For your deployment to be supported by SAP the Azure Enhanced Monitoring Extensi
 Parameter name | Required | Description | Default Value | Allowed Values
 -------------- | -------- | ----------- | ------------- | --------------
 VM Name |Yes |Name of the HANA Virtual Machine. | None | No restrictions
-HANA Jumpbox |Yes |Defines whether to create a Windows Server with HANA Studio installed. | No | No Restrictions
+HANA Jumpbox |Yes |Defines whether to create a Windows Server with HANA Studio installed. | None | No Restrictions
 VM Size |No |Defines the size of the Azure VM for the HANA server. | Standard_M64s | Standard_E16s_v3, Standard_E32s_v3, Standard_E64s_v3, Standard_GS5, Standard_M64s, Standard_M64ms, Standard_M128s, Standard_M128ms | No restrictions
 Write Accelerator |Yes |Whether to enable the M series write accelerator. | no | yes, no
 Network Name |No |Name of the Azure VNET to be provisioned | AZ-EUS2-TAX-NPD-DCMSHARED-PSGAPPS-VNET | No restrictions
 Address Prefixes |No |Address prefix for the Azure VNET to be provisioned | 10.212.250.0/23 | No restrictions
 HANA Subnet Name |No | Name of the subnet where the HANA server will be provisioned | psgdev-subnet | No restrictions
 HANA Subnet Prefix |No |Subnet prefix of the subnet where the HANA server will be provisioned | 10.212.250.0/24 | No restrictions
-Management Subnet Name |No | Name of the subnet where the HANA jumpbox will be provisioned | doesntmatter | No restrictions
+Management Subnet Name |No | Name of the subnet where the HANA jumpbox will be provisioned | SAPMgmtSubnet | No restrictions
 Management Subnet Prefix |No |Subnet prefix of the subnet where the HANA jumpbox will be provisioned | 10.0.6.0/24 | No restrictions
 Custom URI | Yes | URI where the SAP bits are stored for Azure use the URI up to the container, excluding the SAPBtis folder | https://jmjazurestorage1.blob.core.windows.net/sapmediastaging | No restrictions
 VM User Name | No | Username for the HANA server | testuser | No restrictions
@@ -83,7 +83,7 @@ Operating System | No | Linux distribution to use for the HANA server | SLES for
 HANASID | No | HANA System ID | H10 | No restrictions
 HANA Number | No | SAP HANA Instance Number | 00 | No restrictions
 Existing Network Resource Group | No | This gives you the option to deploy the VMs to an existing VNET in a different Resource Group. The value provided should match the name of the existing Resource Group. To deploy the VNET in the same Resource Group the value should be set to "no" | AZRG-ALL-ITS-VNET-SYS | No restrictions
-IP Allocation Method | no | Lets you choose between Static and Dynamic IP Allocation | Dynamic | Dynamic, Static
+IP Allocation Method | no | Lets you choose between Static and Dynamic IP Allocation | Static | Dynamic, Static
 Static IP | No | Allows you to choose the specific IP to be assgined to the HANA server. If the allocation method is Dynamic this parameter will be ignored | 10.212.250.15# | No restrictions
 Subscription Email | No | OS subscription email for BYOS. Leave blank for pay-as-you-go OS image. |  | No restrictions
 Subscription ID | No | OS ID or password for BYOS. Leave blank for pay-as-you-go OS image. |  | No restrictions
