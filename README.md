@@ -1,7 +1,7 @@
 # SAP HANA ARM Installation
-This ARM template is used to install SAP HANA on a single VM running SUSE SLES15, SLES 12 SP 3, SLES 12 SP 2, or RHEL 7.2 for SAP HANA.  For documentation on deploying a cluster of linux machines running HANA System Replication and Linux High Availability Extension, please see documentation here: [cluster deployment](https://github.com/AzureCAT-GSI/SAP-HANA-ARM-v2/blob/master/README-HSR.md). 
+This ARM template is used to install SAP HANA on a single VM running SUSE SLES 15.  For documentation on deploying a cluster of linux machines running HANA System Replication and Linux High Availability Extension, please see documentation here: [cluster deployment](https://github.com/AzureCAT-GSI/SAP-HANA-ARM-v2/blob/master/README-HSR.md). 
 
-This template uses the Linux SKU for SAP. **We will be adding additional SKUs and Linux flavors in future Versions.** The template takes advantage of [Custom Script Extensions](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript) for the installation and configuration of the machine. This should be used only for demonstration and sandbox environments. This is not a production deployment.
+This template uses the Linux SKU for SAP. The template takes advantage of [Custom Script Extensions](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript) for the installation and configuration of the machine. This should be used only for the dev POC environment. This is not a production deployment.
 
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FJanelleJames-devops%2FDeloitte-SAP-ARM-v2%2Fmaster%2Fazuredeploy.json)
 ## Machine Info
@@ -76,10 +76,10 @@ HANA Subnet Name |No | Name of the subnet where the HANA server will be provisio
 HANA Subnet Prefix |No |Subnet prefix of the subnet where the HANA server will be provisioned | 10.212.250.0/24 | No restrictions
 Management Subnet Name |No | Name of the subnet where the HANA jumpbox will be provisioned | doesntmatter | No restrictions
 Management Subnet Prefix |No |Subnet prefix of the subnet where the HANA jumpbox will be provisioned | 10.0.6.0/24 | No restrictions
-Custom URI | Yes | URI where the SAP bits are stored for Azure use the URI up to the container, excluding the SAPBtis folder | None | No restrictions
-VM User Name | No | Username for both the HANA server and the HANA jumpbox | testuser | No restrictions
+Custom URI | Yes | URI where the SAP bits are stored for Azure use the URI up to the container, excluding the SAPBtis folder | https://jmjazurestorage1.blob.core.windows.net/sapmediastaging | No restrictions
+VM User Name | No | Username for the HANA server | testuser | No restrictions
 VM Password | Yes | Password for the user defined above | None | No restrictions
-Operating System | No | Linux distribution to use for the HANA server | SLES for SAP 15 | SLES for SAP 15, SLES for SAP 12 SP2, SLES for SAP 12 SP3, RHEL 7.2 for SAP HANA
+Operating System | No | Linux distribution to use for the HANA server | SLES for SAP 15 | SLES for SAP 15
 HANASID | No | HANA System ID | H10 | No restrictions
 HANA Number | No | SAP HANA Instance Number | 00 | No restrictions
 Existing Network Resource Group | No | This gives you the option to deploy the VMs to an existing VNET in a different Resource Group. The value provided should match the name of the existing Resource Group. To deploy the VNET in the same Resource Group the value should be set to "no" | AZRG-ALL-ITS-VNET-SYS | No restrictions
