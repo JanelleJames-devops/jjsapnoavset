@@ -1,5 +1,5 @@
 # SAP HANA ARM Installation
-This ARM template is used to install SAP HANA on a single VM running SUSE SLES 12 SP 3 or SLES 12 SP 2.  For documentation on deploying a cluster of linux machines running HANA System Replication and Linux High Availability Extension, please see documentation here: [cluster deployment](https://github.com/AzureCAT-GSI/SAP-HANA-ARM-v2/blob/master/README-HSR.md). 
+This ARM template is used to install SAP HANA on a single VM running SUSE SLES15, SLES 12 SP 3 or SLES 12 SP 2.  For documentation on deploying a cluster of linux machines running HANA System Replication and Linux High Availability Extension, please see documentation here: [cluster deployment](https://github.com/AzureCAT-GSI/SAP-HANA-ARM-v2/blob/master/README-HSR.md). 
 
 This template uses the Linux SKU for SAP. **We will be adding additional SKUs and Linux flavors in future Versions.** The template takes advantage of [Custom Script Extensions](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript) for the installation and configuration of the machine. This should be used only for demonstration and sandbox environments. This is not a production deployment.
 
@@ -24,37 +24,14 @@ M128s | 2TB | 3 x P30 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 | 2 x P40
 M128ms | 3.8TB | 5 x P30 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 | 5 x P50
 
 ## Installation Media
-Installation media for SAP HANA should be downloaded and placed in the SapBits folder. You will need to provide the URI for the container where they are stored, for example https://yourBlobName.blob.core.windows.net/yourContainerName. For more information on how to upload files to Azure please go [here](https://github.com/JanelleJames-devops/Deloitte-SAP-ARM-v2/blob/master/UploadToAzure.md)  Specifically you need to download SAP package 51053061, which should consist of four files:
+Installation media for SAP HANA should be downloaded and placed in the SapBits folder. You will need to provide the URI for the container where they are stored, for example https://yourBlobName.blob.core.windows.net/yourContainerName. For more information on how to upload files to Azure please go [here](https://github.com/JanelleJames-devops/Deloitte-SAP-ARM-v2/blob/master/UploadToAzure.md)  Specifically you need to download SAP package 51054623, which should consist of one file:
 ```
-51053061_part1.exe
-51053061_part2.rar
-51053061_part3.rar
-51053061_part4.rar
+51054623.ZIP
 ```
-
-Addtionally, if you wish to install a Windows-based Jumpbox with HANA Studio enabled, create a SAP_HANA_STUDIO folder under your SapBits folder and place the following packages:
-```
-
-IMC_STUDIO2_212_2-80000323.SAR
-sapcar.exe
-serverjre-9.0.1_windows-x64_bin.tar.gz
-
-```
-
-If you want to use a newer version of HANA Studio rename your filename to IMC_STUDIO2_212_2-80000323.SAR.
-
-The Server Java Runtime Environment bits can be downloaded [here](http://www.oracle.com/technetwork/java/javase/downloads/server-jre9-downloads-3848530.html).
 
 There should be a folder inside your storage account container called SapBits:
 
 ![SapBits Image](https://github.com/JanelleJames-devops/Deloitte-SAP-ARM-v2/blob/master/media/Structure1.png)
-
-The following files should be present inside the SapBits folder:
-
-![HANA Image](https://github.com/JanelleJames-devops/Deloitte-SAP-ARM-v2/blob/master/media/Structure2.png)
-
-Additionally if you plan on installing the HANA Jumpbox, you should create a folder under the SapBits folder and add the following files:
-![HANA Studio Image](https://github.com/JanelleJames-devops/Deloitte-SAP-ARM-v2/blob/master/media/Structure3.png)
 
 ## Deploy the Solution
 ### Deploy from the Portal
@@ -79,7 +56,7 @@ az group deployment create \
     --name HANADeployment \
     --resource-group HANADeploymentRG \
     --template-uri "https://raw.githubusercontent.com/JanelleJames-devops/Deloitte-SAP-ARM-v2/master/azuredeploy.json" \
-    --parameters VMName=HANAtestVM HANAJumpbox=yes CustomURI=https://yourBlobName.blob.core.windows.net/yourContainerName VMPassword=AweS0me@PW
+    --parameters VMName=HANAtestVM HANAJumpbox=no CustomURI=https://yourBlobName.blob.core.windows.net/yourContainerName VMPassword=AweS0me@PW
 ```
 ## Monitoring
 
