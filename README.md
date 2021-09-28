@@ -1,11 +1,11 @@
 # SAP HANA ARM Installation
-This ARM template is used to install SAP HANA on a single VM running SUSE SLES15, SLES 12 SP 3 or SLES 12 SP 2.  For documentation on deploying a cluster of linux machines running HANA System Replication and Linux High Availability Extension, please see documentation here: [cluster deployment](https://github.com/AzureCAT-GSI/SAP-HANA-ARM-v2/blob/master/README-HSR.md). 
+This ARM template is used to install SAP HANA on a single VM running SUSE SLES15, SLES 12 SP 3, SLES 12 SP 2, or RHEL 7.2.  For documentation on deploying a cluster of linux machines running HANA System Replication and Linux High Availability Extension, please see documentation here: [cluster deployment](https://github.com/AzureCAT-GSI/SAP-HANA-ARM-v2/blob/master/README-HSR.md). 
 
 This template uses the Linux SKU for SAP. **We will be adding additional SKUs and Linux flavors in future Versions.** The template takes advantage of [Custom Script Extensions](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript) for the installation and configuration of the machine. This should be used only for demonstration and sandbox environments. This is not a production deployment.
 
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FJanelleJames-devops%2FDeloitte-SAP-ARM-v2%2Fmaster%2Fazuredeploy.json)
 ## Machine Info
-The template was originally written to deploy HANA on one of the machines listed in the table below with the noted disk configuration.  Modificatoin to disk sizes has been made per Deloitte SME suggestions of data=3xRAM, logs=2xRAM (with 2TB Max).  M64s is the largest computer size tested thus far so disk sizes for larger machines is TBD.  The deployment takes advantage of Managed Disks, for more information on Managed Disks or the sizes of the noted disks can be found on [this](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#pricing-and-billing) page.
+The template was originally written to deploy HANA on one of the machines listed in the table below with the noted disk configuration.  Modification to disk sizes has been made per Deloitte SME suggestions of data=3xRAM, logs=2xRAM (with 2TB Max).  M64s is the largest computer size tested thus far so disk sizes for larger machines is TBD.  The deployment takes advantage of Managed Disks, for more information on Managed Disks or the sizes of the noted disks can be found on [this](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#pricing-and-billing) page.
 
 Machine Size | RAM | Data and Log Disks | /hana/shared | /root | /usr/sap | hana/backup
 ------------ | --- | ------------------ | ------------ | ----- | -------- | -----------
@@ -68,7 +68,7 @@ Parameter name | Required | Description | Default Value | Allowed Values
 -------------- | -------- | ----------- | ------------- | --------------
 VM Name |Yes |Name of the HANA Virtual Machine. | None | No restrictions
 HANA Jumpbox |Yes |Defines whether to create a Windows Server with HANA Studio installed. | None | No Restrictions
-VM Size |No |Defines the size of the Azure VM for the HANA server. | Standard_GS5 | Standard_GS5, Standard_M64s, Standard_M64ms, Standard_M128s, Standard_M128ms, Standard_E16s_v3, Standard_E32s_v3, Standard_E64s_v3 | No restrictions
+VM Size |No |Defines the size of the Azure VM for the HANA server. | Standard_M64s | Standard_E16s_v3, Standard_E32s_v3, Standard_E64s_v3, Standard_GS5, Standard_M64s, Standard_M64ms, Standard_M128s, Standard_M128ms | No restrictions
 Write Accelerator |Yes |Whether to enable the M series write accelerator. | no | yes, no
 Network Name |No |Name of the Azure VNET to be provisioned | ra-hana-vnet | No restrictions
 Address Prefixes |No |Address prefix for the Azure VNET to be provisioned | 10.0.0.0/16 | No restrictions
@@ -79,7 +79,7 @@ Management Subnet Prefix |No |Subnet prefix of the subnet where the HANA jumpbox
 Custom URI | Yes | URI where the SAP bits are stored for Azure use the URI up to the container, excluding the SAPBtis folder | None | No restrictions
 VM User Name | No | Username for both the HANA server and the HANA jumpbox | testuser | No restrictions
 VM Password | Yes | Password for the user defined above | None | No restrictions
-Operating System | No | Linux distribution to use for the HANA server | SLES for SAP 12 SP2 | SLES for SAP 12 SP2, RHEL 7.2 for SAP HANA
+Operating System | No | Linux distribution to use for the HANA server | SLES for SAP 15 | SLES for SAP 15, SLES for SAP 12 SP2, SLES for SAP 12 SP3, RHEL 7.2 for SAP HANA
 HANASID | No | HANA System ID | H10 | No restrictions
 HANA Number | No | SAP HANA Instance Number | 00 | No restrictions
 Existing Network Resource Group | No | This gives you the option to deploy the VMs to an existing VNET in a different Resource Group. The value provided should match the name of the existing Resource Group. To deploy the VNET in the same Resource Group the value should be set to "no" | no | No restrictions
