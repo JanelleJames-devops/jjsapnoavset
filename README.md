@@ -5,7 +5,7 @@ This template uses the Linux SKU for SAP. **We will be adding additional SKUs an
 
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FJanelleJames-devops%2FDeloitte-SAP-ARM-v2%2Fmaster%2Fazuredeploy.json)
 ## Machine Info
-The template currently deploys HANA on one of the machines listed in the table below with the noted disk configuration.  The deployment takes advantage of Managed Disks, for more information on Managed Disks or the sizes of the noted disks can be found on [this](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#pricing-and-billing) page.
+The template was originally written to deploy HANA on one of the machines listed in the table below with the noted disk configuration.  Modificatoin to disk sizes has been made per Deloitte SME suggestions of data=3xRAM, logs=2xRAM (with 2TB Max).  M64s is the largest computer size tested thus far so disk sizes for larger machines is TBD.  The deployment takes advantage of Managed Disks, for more information on Managed Disks or the sizes of the noted disks can be found on [this](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#pricing-and-billing) page.
 
 Machine Size | RAM | Data and Log Disks | /hana/shared | /root | /usr/sap | hana/backup
 ------------ | --- | ------------------ | ------------ | ----- | -------- | -----------
