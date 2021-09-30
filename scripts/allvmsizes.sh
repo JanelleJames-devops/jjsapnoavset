@@ -364,7 +364,7 @@ then
   cd $SAPBITSDIR
   mkdir ${hanapackage}
   cd ${hanapackage}
-  /usr/bin/wget --quiet $Uri/SapBits/${hanapackage}.ZIP
+  /usr/bin/wget --quiet $Uri
   mv ./5105* ./$hanapackage.ZIP
   unzip ./${hanapackage}.ZIP
   cd $SAPBITSDIR
