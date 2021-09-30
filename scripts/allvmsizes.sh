@@ -175,8 +175,12 @@ if [ $VMSIZE == "Standard_M64s" ]; then
   #log volume creation
   logvg1lun="/dev/disk/azure/scsi1/lun8"
   logvg2lun="/dev/disk/azure/scsi1/lun9"
-  vgcreate logvg $logvg1lun $logvg2lun
-  PHYSVOLUMES=2
+  logvg3lun="/dev/disk/azure/scsi1/lun10"
+  logvg4lun="/dev/disk/azure/scsi1/lun11"
+  logvg5lun="/dev/disk/azure/scsi1/lun12"
+  logvg6lun="/dev/disk/azure/scsi1/lun13"
+  vgcreate logvg $logvg1lun $logvg2lun $logvg3lun $logvg4lun $logvg5lun $logvg6lun
+  PHYSVOLUMES=6
   STRIPESIZE=32
   lvcreate -i$PHYSVOLUMES -I$STRIPESIZE -l 100%FREE -n loglv logvg
   mount -t xfs /dev/logvg/loglv /hana/log 
@@ -287,7 +291,6 @@ if [ $VMSIZE == "Standard_M128ms" ] || [ $VMSIZE == "Standard_M208ms_v2" ]; then
   PHYSVOLUMES=2
   STRIPESIZE=32
   lvcreate -i$PHYSVOLUMES -I$STRIPESIZE -l 100%FREE -n loglv logvg
-  mount -t xfs /dev/logvg/loglv /hana/log 
   echo "/dev/mapper/logvg-loglv /hana/log xfs defaults 0 0" >> /etc/fstab
 
   mkfs.xfs /dev/datavg/datalv
@@ -303,6 +306,7 @@ mount -t xfs /dev/sharedvg/sharedlv /hana/shared
 mount -t xfs /dev/backupvg/backuplv /hana/backup 
 mount -t xfs /dev/usrsapvg/usrsaplv /usr/sap
 mount -t xfs /dev/datavg/datalv /hana/data
+mount -t xfs /dev/logvg/loglv /hana/log 
 echo "mounthanashared end" >> /tmp/parameter.txt
 
 echo "write to fstab start" >> /tmp/parameter.txt
