@@ -182,8 +182,7 @@ if [ $VMSIZE == "Standard_M64s" ]; then
   vgcreate logvg $logvg1lun $logvg2lun $logvg3lun $logvg4lun $logvg5lun $logvg6lun
   PHYSVOLUMES=6
   STRIPESIZE=32
-  lvcreate -i$PHYSVOLUMES -I$STRIPESIZE -l 100%FREE -n loglv logvg
-  mount -t xfs /dev/logvg/loglv /hana/log 
+  lvcreate -i$PHYSVOLUMES -I$STRIPESIZE -l 100%FREE -n loglv logvg 
 echo "/dev/mapper/logvg-loglv /hana/log xfs defaults 0 0" >> /etc/fstab
 
   mkfs.xfs /dev/datavg/datalv
@@ -191,6 +190,7 @@ echo "/dev/mapper/logvg-loglv /hana/log xfs defaults 0 0" >> /etc/fstab
   mkfs -t xfs /dev/sharedvg/sharedlv 
   mkfs -t xfs /dev/backupvg/backuplv 
   mkfs -t xfs /dev/usrsapvg/usrsaplv
+  mount -t xfs /dev/logvg/loglv /hana/log
 echo "logicalvols end" >> /tmp/parameter.txt
 fi
 
