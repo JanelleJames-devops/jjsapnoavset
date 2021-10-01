@@ -156,7 +156,7 @@
           "metadata": {
             "description": "IP Address for the HANA VM when Static IP Allocation Method has been selected"
           },
-          "defaultValue": "10.212.250.#"
+          "defaultValue": "10.212.250.151"
         },
         "AvailSetName": {
           "type": "string",
