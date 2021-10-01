@@ -93,7 +93,7 @@
             "type": "string",
             "defaultValue": "https://jmjazurestorage1.blob.core.windows.net/sapmediastaging",
             "metadata": {
-                "description": "URI to the SapBits folder container where SAP bits have been uploaded"
+                "description": "SAS URL to .ZIP file"
             }
         },
         "VMUserName": {
