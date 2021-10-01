@@ -169,7 +169,7 @@ if [ $VMSIZE == "Standard_M64s" ]; then
   datavg4lun="/dev/disk/azure/scsi1/lun7"
   vgcreate datavg $datavg1lun $datavg2lun $datavg3lun $datavg4lun
   PHYSVOLUMES=4
-  STRIPESIZE=64
+  STRIPESIZE=256
   lvcreate -i$PHYSVOLUMES -I$STRIPESIZE -l 100%FREE -n datalv datavg
 
   #log volume creation
@@ -181,7 +181,7 @@ if [ $VMSIZE == "Standard_M64s" ]; then
   logvg6lun="/dev/disk/azure/scsi1/lun13"
   vgcreate logvg $logvg1lun $logvg2lun $logvg3lun $logvg4lun $logvg5lun $logvg6lun
   PHYSVOLUMES=6
-  STRIPESIZE=32
+  STRIPESIZE=64
   lvcreate -i$PHYSVOLUMES -I$STRIPESIZE -l 100%FREE -n loglv logvg 
 echo "/dev/mapper/logvg-loglv /hana/log xfs defaults 0 0" >> /etc/fstab
 
