@@ -91,7 +91,7 @@
         },
         "customURI": {
             "type": "string",
-            "defaultValue": "https://jmjazurestorage1.blob.core.windows.net/sapmediastaging",
+            "defaultValue": "https://azuse2dsapsto01.blob.core.windows.net/sapmediastaging/SapBits/51054623.ZIP",
             "metadata": {
                 "description": "SAS URL to .ZIP file"
             }
