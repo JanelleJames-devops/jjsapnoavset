@@ -144,6 +144,11 @@ if [ $VMSIZE == "Standard_M64s" ]; then
   pvcreate -ff -y  /dev/disk/azure/scsi1/lun7
   pvcreate -ff -y /dev/disk/azure/scsi1/lun8
   pvcreate -ff -y /dev/disk/azure/scsi1/lun9
+  pvcreate -ff -y /dev/disk/azure/scsi1/lun10
+  pvcreate -ff -y /dev/disk/azure/scsi1/lun11
+  pvcreate -ff -y /dev/disk/azure/scsi1/lun12
+  pvcreate -ff -y /dev/disk/azure/scsi1/lun13
+
 
   echo "logicalvols start" >> /tmp/parameter.txt
   #shared volume creation
@@ -167,19 +172,19 @@ if [ $VMSIZE == "Standard_M64s" ]; then
   datavg2lun="/dev/disk/azure/scsi1/lun5"
   datavg3lun="/dev/disk/azure/scsi1/lun6"
   datavg4lun="/dev/disk/azure/scsi1/lun7"
-  vgcreate datavg $datavg1lun $datavg2lun $datavg3lun $datavg4lun
+  datavg5lun="/dev/disk/azure/scsi1/lun8"
+  datavg6lun="/dev/disk/azure/scsi1/lun9"
+  vgcreate datavg $datavg1lun $datavg2lun $datavg3lun $datavg4lun $datavg5lun $datavg6lun
   PHYSVOLUMES=4
   STRIPESIZE=256
   lvcreate -i$PHYSVOLUMES -I$STRIPESIZE -l 100%FREE -n datalv datavg
 
   #log volume creation
-  logvg1lun="/dev/disk/azure/scsi1/lun8"
-  logvg2lun="/dev/disk/azure/scsi1/lun9"
-  logvg3lun="/dev/disk/azure/scsi1/lun10"
-  logvg4lun="/dev/disk/azure/scsi1/lun11"
-  logvg5lun="/dev/disk/azure/scsi1/lun12"
-  logvg6lun="/dev/disk/azure/scsi1/lun13"
-  vgcreate logvg $logvg1lun $logvg2lun $logvg3lun $logvg4lun $logvg5lun $logvg6lun
+  logvg1lun="/dev/disk/azure/scsi1/lun10"
+  logvg2lun="/dev/disk/azure/scsi1/lun11"
+  logvg3lun="/dev/disk/azure/scsi1/lun12"
+  logvg4lun="/dev/disk/azure/scsi1/lun13"
+  vgcreate logvg $logvg1lun $logvg2lun $logvg3lun $logvg4lun
   PHYSVOLUMES=6
   STRIPESIZE=64
   lvcreate -i$PHYSVOLUMES -I$STRIPESIZE -l 100%FREE -n loglv logvg 
