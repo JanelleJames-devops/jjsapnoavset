@@ -198,7 +198,7 @@
         {
             "type": "Microsoft.Compute/disks",
             "name": "[concat(parameters('vmName'),'-shared')]",
-            "apiVersion": "2018-04-01",
+            "apiVersion": "2020-12-01",
             "location": "[resourceGroup().location]",
             "sku": {
                 "name": "StandardSSD_LRS",
