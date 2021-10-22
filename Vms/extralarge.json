@@ -9,10 +9,6 @@
             },
             "defaultValue": "SAP HANA PLATFORM EDITION 2.0 SPS05 REV52 (51054623)",
             "allowedValues": [
-                "SAP HANA PLATFORM EDITION 2.0 SPS01 REV 10 (51052030)",
-                "SAP HANA PLATFORM EDITION 2.0 SPS02 (51052325)",
-                "SAP HANA PLATFORM EDITION 2.0 SPS03 REV30 (51053061)",
-                "SAP HANA PLATFORM EDITION 2.0 SPS04 REV40 (51053787)",
                 "SAP HANA PLATFORM EDITION 2.0 SPS05 REV52 (51054623)"
             ]
         },   
@@ -39,11 +35,9 @@
             "metadata": {
                 "description": "Operating system for HANA Machine"
             },
-            "defaultValue": "SLES for SAP 12 SP3",
+            "defaultValue": "SLES for SAP 15 SP2",
             "allowedValues": [
-                "SLES for SAP 12 SP3",
-                "SLES for SAP 12 SP2",
-                "RHEL 7.2 for SAP HANA"
+                "SLES for SAP 15 SP2"
             ]
         },
         "vmUserName": {
@@ -127,8 +121,8 @@
         }
     },
     "variables": {
-        "api-version": "2017-06-01",
-        "api-version-vm": "2017-12-01",
+        "api-version": "2018-04-01",
+        "api-version-vm": "2018-04-01",
         "vmPassword": "HANA07061992!",
         "mode": "Push",
         "baseUri": "https://raw.githubusercontent.com/JanelleJames-devops/Deloitte-SAP-ARM-v2/master/",
@@ -136,8 +130,8 @@
         "subnetRef": "[parameters('HANAsubnetRef')]",
         "OperatingSystemSpec": {
             "imagePublisher": "[if (contains(parameters('OperatingSystem'),'SLES'),'SUSE','RedHat')]",
-            "imageOffer": "[if (contains(parameters('OperatingSystem'),'SLES'),if (contains(parameters('SubscriptionEmail'),'@'),'SLES-SAP-BYOS','SLES-SAP'),'RHEL-SAP-HANA')]",
-            "sku": "[if (contains(parameters('OperatingSystem'),'12 SP3'),'12-SP3',if (contains(parameters('OperatingSystem'),'12 SP2'),'12-SP2','7.2'))]"
+            "imageOffer": "[if (contains(parameters('OperatingSystem'),'SLES'),if (contains(parameters('SubscriptionEmail'),'@'),'SLES-SAP-BYOS','sles-sap-15-sp2'),'RHEL-SAP-HANA')]",
+            "sku": "[if (contains(parameters('OperatingSystem'),'15 SP2'),'gen2',if (contains(parameters('OperatingSystem'),'12 SP3'),'12-SP3',if (contains(parameters('OperatingSystem'),'12 SP2'),'12-SP2','7.2')))]"
         },
         "diskConfig": "[variables(concat('diskConfig_', parameters('vmSize')))]",
         "diskConfig_Standard_M128ms": {
