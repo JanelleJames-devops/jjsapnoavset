@@ -1,11 +1,11 @@
 # SAP HANA ARM Installation
-This ARM template is used to install SAP HANA on a single VM running SUSE SLES 15.  For documentation on deploying a cluster of linux machines running HANA System Replication and Linux High Availability Extension, please see documentation here: [cluster deployment](https://github.com/AzureCAT-GSI/SAP-HANA-ARM-v2/blob/master/README-HSR.md). 
+This ARM template is used to install SAP HANA on a single VM running SUSE SLES 15 SP2.  For documentation on deploying a cluster of linux machines running HANA System Replication and Linux High Availability Extension, please see documentation here: [cluster deployment](https://github.com/AzureCAT-GSI/SAP-HANA-ARM-v2/blob/master/README-HSR.md). 
 
 This template uses the Linux SKU for SAP. The template takes advantage of [Custom Script Extensions](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript) for the installation and configuration of the machine. This should be used only for the dev POC environment. This is not a production deployment.
 
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FJanelleJames-devops%2FDeloitte-SAP-ARM-v2%2Fmaster%2Fazuredeploy.json)
 ## Machine Info
-The template was originally written to deploy HANA on one of the machines listed in the table below with the noted disk configuration.  Modification to disk sizes has been made per Deloitte SME suggestions of data=3xRAM, logs=2xRAM (with 2TB Max).  M64s is the largest computer size tested thus far so disk sizes for larger machines is TBD.  The deployment takes advantage of Managed Disks, for more information on Managed Disks or the sizes of the noted disks can be found on [this](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#pricing-and-billing) page.
+The template was originally written to deploy HANA on one of the machines listed in the table below with the noted disk configuration.  Modification to disk sizes has been made per Deloitte SME and Microsoft SME suggestions of data=3xRAM, logs=2xRAM (with 2TB Max) and stripe sizes of 256 (data) and 64 (log) for the M64s machine image.  Disk sizes for other machine images is TBD.  The deployment takes advantage of Managed Disks, for more information on Managed Disks or the sizes of the noted disks can be found on [this](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#pricing-and-billing) page.
 
 Machine Size | RAM | Data and Log Disks | /hana/shared | /root | /usr/sap | hana/backup
 ------------ | --- | ------------------ | ------------ | ----- | -------- | -----------
@@ -41,7 +41,7 @@ To deploy from the portal using a graphic interface you can use the [![Deploy to
 ### Deploy from Powershell
 
 ```powershell
-New-AzureRmResourceGroup -Name HANADeploymentRG -Location "Central US"
+New-AzureRmResourceGroup -Name HANADeploymentRG -Location "East US2"
 New-AzureRmResourceGroupDeployment -Name HANADeployment -ResourceGroupName HANADeploymentRG `
   -TemplateUri https://raw.githubusercontent.com/JanelleJames-devops/Deloitte-SAP-ARM-v2/master/azuredeploy.json `
   -VMName HANAtestVM -HANAJumpbox yes -CustomURI https://yourBlobName.blob.core.windows.net/yourContainerName -VMPassword AweS0me@PW
@@ -51,7 +51,7 @@ New-AzureRmResourceGroupDeployment -Name HANADeployment -ResourceGroupName HANAD
 ```
 az login
 
-az group create --name HANADeploymentRG --location "Central US"
+az group create --name HANADeploymentRG --location "East US2"
 az group deployment create \
     --name HANADeployment \
     --resource-group HANADeploymentRG \
@@ -79,7 +79,7 @@ Management Subnet Prefix |No |Subnet prefix of the subnet where the HANA jumpbox
 Custom URI | Yes | SAS URL to .ZIP file | None | No restrictions
 VM User Name | No | Username for both the HANA server and the HANA jumpbox | testuser | No restrictions
 VM Password | Yes | Password for the user defined above | None | No restrictions
-Operating System | No | Linux distribution to use for the HANA server | SLES for SAP 15 SP3 | SLES for SAP 12 SP2, RHEL 7.2 for SAP HANA
+Operating System | No | Linux distribution to use for the HANA server | SLES for SAP 15 SP2 | SLES for SAP 15 SP2
 HANASID | No | HANA System ID | H10 | No restrictions
 HANA Number | No | SAP HANA Instance Number | 00 | No restrictions
 Existing Network Resource Group | AZRG-ALL-ITS-VNET-SYS | This gives you the option to deploy the VMs to an existing VNET in a different Resource Group. The value provided should match the name of the existing Resource Group. To deploy the VNET in the same Resource Group the value should be set to "no" | no | No restrictions
