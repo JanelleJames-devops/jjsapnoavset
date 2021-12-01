@@ -118,7 +118,13 @@
                 "description": "SMT Uri, blank for none"
             },
             "DefaultValue": ""
-        }
+        },
+        "resourceTags": {
+           "type": "object",
+           "defaultValue": {
+              "Environment": "Dev"
+            }
+        } 
     },
     "variables": {
         "api-version": "2018-04-01",
@@ -438,6 +444,7 @@
             "type": "Microsoft.Compute/virtualMachines",
             "name": "[parameters('vmName')]",
             "location": "[resourceGroup().location]",
+            "tags": "[parameters('resourceTags')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]",
                 "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-shared'))]",
