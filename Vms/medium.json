@@ -122,7 +122,7 @@
         "resourceTags": {
            "type": "object",
            "defaultValue": {
-              "Environment": "Dev"
+              "ENVIRONMENT": "DEV"
             }
         } 
     },
