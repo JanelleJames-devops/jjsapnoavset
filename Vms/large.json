@@ -155,6 +155,38 @@
             "data3": 1023,
             "log1": 511,
             "log2": 511
+        },
+        "diskConfig_Standard_M192is_v2": {
+            "shared": 2048,
+            "sap": 512,
+            "backup1": 2048,
+            "backup2": 2048,
+            "data1": 1024,
+            "data2": 1024,
+            "data3": 1024,
+            "data4": 1024,
+            "data5": 1024,
+            "data6": 1024,
+            "log1": 1024,
+            "log2": 1024,
+            "log3": 1024,
+            "log4": 1024
+        },
+        "diskConfig_Standard_M192ims_v2": {
+            "shared": 4096,
+            "sap": 1024,
+            "backup1": 4096,
+            "backup2": 4096,
+            "data1": 2048,
+            "data2": 2048,
+            "data3": 2048,
+            "data4": 2048,
+            "data5": 2048,
+            "data6": 2048,
+            "log1": 2048,
+            "log2": 2048,
+            "log3": 2048,
+            "log4": 2048
         }
     },
     "resources": [

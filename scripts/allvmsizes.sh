@@ -89,7 +89,7 @@ cp -f /etc/waagent.conf.new /etc/waagent.conf
 #don't restart waagent, as this will kill the custom script.
 #service waagent restart
 
-# this assumes that 5 disks are attached at lun 0 through 4
+# this assumes that 6 disks are attached at lun 0 through 5
 echo "Creating partitions and physical volumes"
 pvcreate -ff -y /dev/disk/azure/scsi1/lun0   
 pvcreate -ff -y  /dev/disk/azure/scsi1/lun1
@@ -98,7 +98,7 @@ pvcreate -ff -y  /dev/disk/azure/scsi1/lun3
 pvcreate -ff -y  /dev/disk/azure/scsi1/lun4
 pvcreate -ff -y  /dev/disk/azure/scsi1/lun5
 
-if [ $VMSIZE == "Standard_E16s_v3" ] || [ "$VMSIZE" == "Standard_E32s_v3" ] || [ "$VMSIZE" == "Standard_E64s_v3" ] || [ "$VMSIZE" == "Standard_GS5" ] || [ "$VMSIZE" == "Standard_M32ts" ] || [ "$VMSIZE" == "Standard_M32ls" ] || [ "$VMSIZE" == "Standard_M64ls" ] || [ $VMSIZE == "Standard_DS14_v2" ] ; then
+if [ $VMSIZE == "Standard_E16s_v3" ] || [ "$VMSIZE" == "Standard_E32s_v3" ] || [ "$VMSIZE" == "Standard_E64s_v3" ] || [ "$VMSIZE" == "Standard_GS5" ] || [ "$VMSIZE" == "Standard_M32ts" ] || [ "$VMSIZE" == "Standard_M32ls" ] || [ "$VMSIZE" == "Standard_M64ls" ] || [ "$VMSIZE" == "Standard_DS14_v2" ] ; then
 echo "logicalvols start" >> /tmp/parameter.txt
   #shared volume creation
   sharedvglun="/dev/disk/azure/scsi1/lun0"
@@ -136,7 +136,7 @@ echo "logicalvols start" >> /tmp/parameter.txt
 echo "logicalvols end" >> /tmp/parameter.txt
 fi
 
-if [ $VMSIZE == "Standard_M64s" ]; then
+if [ "$VMSIZE" == "Standard_M64s" ] || [ "$VMSIZE" == "Standard_M192is_v2" ] || [ "$VMSIZE" == "Standard_M192ims_v2" ]; then
   #this is the medium size
   # this assumes that 6 disks are attached at lun 0 through 5
   echo "Creating partitions and physical volumes"

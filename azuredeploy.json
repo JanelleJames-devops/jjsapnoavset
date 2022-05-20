@@ -35,7 +35,7 @@
             "metadata": {
                 "description": "VM Size"
             },
-            "defaultValue": "Standard_M64s (1 TB, Certified)",
+            "defaultValue": "Standard_M192is_v2 (2 TB, Certified)",
             "allowedValues": [
                 "Standard_E16s_v3 (128 GB)",
                 "Standard_E32s_v3 (256 GB)",
@@ -44,7 +44,9 @@
                 "Standard_M64s (1 TB, Certified)",
                 "Standard_M64ms (1.7 TB, Certified)",
                 "Standard_M128s (2 TB, Certified)",
-                "Standard_M128ms (3.8 TB, Certified)"
+                "Standard_M128ms (3.8 TB, Certified)",
+                "Standard_M192is_v2 (2 TB, Certified)",
+                "Standadd_M192ims_v2 (4 TB, Certified)"
             ]
         },   
         "NetworkName": {
