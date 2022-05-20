@@ -367,7 +367,7 @@
             }
         },   
         {
-            "condition": "[or(equals(variables('vmSize'),'Standard_M64ms'),equals(variables('vmSize'),'Standard_M128s'))]",
+            "condition": "[or(equals(variables('vmSize'),'Standard_M192ids_v2'),equals(variables('vmSize'),'Standard_M192idms_v2'))]",
             "apiVersion": "2016-09-01",
             "name": "[concat('LargeLinkedTemplate', parameters('VMName'))]",
             "type": "Microsoft.Resources/deployments",

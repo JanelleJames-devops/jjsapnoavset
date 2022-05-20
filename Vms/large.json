@@ -134,29 +134,7 @@
             "sku": "[if (contains(parameters('OperatingSystem'),'15 SP2'),'gen2',if (contains(parameters('OperatingSystem'),'12 SP3'),'12-SP3',if (contains(parameters('OperatingSystem'),'12 SP2'),'12-SP2','7.2')))]"
         },
         "diskConfig": "[variables(concat('diskConfig_', parameters('vmSize')))]",
-        "diskConfig_Standard_M64ms": {
-            "shared": 1023,
-            "sap": 63,
-            "backup1": 1024,
-            "backup2": 1024,
-            "data1": 1023,
-            "data2": 1023,
-            "data3": 1023,
-            "log1": 511,
-            "log2": 511
-        },
-        "diskConfig_Standard_M128s": {
-            "shared": 1023,
-            "sap": 63,
-            "backup1": 2047,
-            "backup2": 2047,
-            "data1": 1023,
-            "data2": 1023,
-            "data3": 1023,
-            "log1": 511,
-            "log2": 511
-        },
-        "diskConfig_Standard_M192is_v2": {
+        "diskConfig_Standard_M192ids_v2": {
             "shared": 2048,
             "sap": 512,
             "backup1": 2048,
@@ -172,7 +150,7 @@
             "log3": 1024,
             "log4": 1024
         },
-        "diskConfig_Standard_M192ims_v2": {
+        "diskConfig_Standard_M192idms_v2": {
             "shared": 4096,
             "sap": 1024,
             "backup1": 4096,
