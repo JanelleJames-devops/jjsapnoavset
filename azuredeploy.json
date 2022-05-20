@@ -42,7 +42,6 @@
                 "Standard_E64s_v3 (432 GB)",
                 "Standard_GS5 (448 GB, Certified)",
                 "Standard_M64s (1 TB, Certified)",
-                "Standard_M64ms (1.7 TB, Certified)",
                 "Standard_M192ids_v2 (2 TB, Certified)",
                 "Standard_M192idms_v2 (4 TB, Certified)"
             ]
