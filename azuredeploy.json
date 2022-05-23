@@ -35,7 +35,7 @@
             "metadata": {
                 "description": "VM Size"
             },
-            "defaultValue": "Standard_M192is_v2 (2 TB, Certified)",
+            "defaultValue": "Standard_M192ids_v2 (2 TB, Certified)",
             "allowedValues": [
                 "Standard_E16s_v3 (128 GB)",
                 "Standard_E32s_v3 (256 GB)",
