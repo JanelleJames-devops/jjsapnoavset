@@ -325,6 +325,54 @@
         },
         {
             "type": "Microsoft.Compute/disks",
+            "name": "[concat(parameters('vmName'),'-data4')]",
+            "apiVersion": "2018-04-01",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Premium_LRS",
+                "tier": "Premium"
+            },
+            "properties": {
+                "creationData": {
+                    "createOption": "Empty"
+                },
+                "diskSizeGB": "[variables('diskConfig').data4]"
+            }
+        },
+        {
+            "type": "Microsoft.Compute/disks",
+            "name": "[concat(parameters('vmName'),'-data5')]",
+            "apiVersion": "2018-04-01",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Premium_LRS",
+                "tier": "Premium"
+            },
+            "properties": {
+                "creationData": {
+                    "createOption": "Empty"
+                },
+                "diskSizeGB": "[variables('diskConfig').data5]"
+            }
+        },
+        {
+            "type": "Microsoft.Compute/disks",
+            "name": "[concat(parameters('vmName'),'-data6')]",
+            "apiVersion": "2018-04-01",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Premium_LRS",
+                "tier": "Premium"
+            },
+            "properties": {
+                "creationData": {
+                    "createOption": "Empty"
+                },
+                "diskSizeGB": "[variables('diskConfig').data6]"
+            }
+        },
+        {
+            "type": "Microsoft.Compute/disks",
             "name": "[concat(parameters('vmName'),'-log1')]",
             "apiVersion": "2018-04-01",
             "location": "[resourceGroup().location]",
@@ -356,6 +404,38 @@
             }
         },
         {
+            "type": "Microsoft.Compute/disks",
+            "name": "[concat(parameters('vmName'),'-log3')]",
+            "apiVersion": "2018-04-01",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Premium_LRS",
+                "tier": "Premium"
+            },
+            "properties": {
+                "creationData": {
+                    "createOption": "Empty"
+                },
+                "diskSizeGB": "[variables('diskConfig').log3]"
+            }
+        },
+        {
+            "type": "Microsoft.Compute/disks",
+            "name": "[concat(parameters('vmName'),'-log4')]",
+            "apiVersion": "2018-04-01",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Premium_LRS",
+                "tier": "Premium"
+            },
+            "properties": {
+                "creationData": {
+                    "createOption": "Empty"
+                },
+                "diskSizeGB": "[variables('diskConfig').log4]"
+            }
+        },
+        {
             "type": "Microsoft.Compute/availabilitySets",
             "name": "[parameters('AvailSetName')]",
             "apiVersion": "2017-03-30",
@@ -373,6 +453,7 @@
             "type": "Microsoft.Compute/virtualMachines",
             "name": "[parameters('vmName')]",
             "location": "[resourceGroup().location]",
+            "tags": "[parameters('resourceTags')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]",
                 "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-shared'))]",
@@ -382,8 +463,13 @@
                 "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-data1'))]",
                 "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-data2'))]",
                 "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-data3'))]",
+                "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-data4'))]",
+                "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-data5'))]",
+                "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-data6'))]",
                 "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-log1'))]",
                 "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-log2'))]",
+                "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-log3'))]",
+                "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-log4'))]",
                 "[resourceId('Microsoft.Compute/availabilitySets', parameters('AvailSetName'))]"
             ],
             "properties": {
@@ -461,20 +547,57 @@
                         {
                             "lun": 7,
                             "createOption": "Attach",
+                            "managedDisk": {
+                                "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-data4'))]"
+                            }
+                        },
+                                                {
+                            "lun": 8,
+                            "createOption": "Attach",
+                            "managedDisk": {
+                                "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-data5'))]"
+                            }
+                        },
+                                                {
+                            "lun": 9,
+                            "createOption": "Attach",
+                            "managedDisk": {
+                                "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-data6'))]"
+                            }
+                        },
+                        {
+                            "lun": 10,
+                            "createOption": "Attach",
                             "writeAcceleratorEnabled": "true",
                             "managedDisk": {
                                 "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-log1'))]"
                             }
                         },
                         {
-                            "lun": 8,
+                            "lun": 11,
                             "createOption": "Attach",
                             "writeAcceleratorEnabled": "true",
                             "managedDisk": {
                                 "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-log2'))]"
                             }
+                        },
+                                                {
+                            "lun": 12,
+                            "createOption": "Attach",
+                            "writeAcceleratorEnabled": "true",
+                            "managedDisk": {
+                                "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-log3'))]"
+                            }
+                        },
+                                                {
+                            "lun": 13,
+                            "createOption": "Attach",
+                            "writeAcceleratorEnabled": "true",
+                            "managedDisk": {
+                                "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-log4'))]"
+                            }
                         }
-                    ]
+                    ]                   
                 },
                 "networkProfile": {
                     "networkInterfaces": [

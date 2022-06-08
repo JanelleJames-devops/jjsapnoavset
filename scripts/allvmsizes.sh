@@ -137,7 +137,7 @@ echo "logicalvols end" >> /tmp/parameter.txt
 fi
 
 if [ "$VMSIZE" == "Standard_M64s" ] || [ "$VMSIZE" == "Standard_M192is_v2" ] || [ "$VMSIZE" == "Standard_M192ims_v2" ]; then
-  #this is the medium size
+  #this is the medium and large size
   # this assumes that 6 disks are attached at lun 0 through 5
   echo "Creating partitions and physical volumes"
   pvcreate -ff -y  /dev/disk/azure/scsi1/lun6
