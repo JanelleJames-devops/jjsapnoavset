@@ -118,6 +118,12 @@
                 "description": "SMT Uri, blank for none"
             },
             "DefaultValue": ""
+        },
+            "resourceTags": {
+            "type": "object",
+            "defaultValue": {
+               "ENVIRONMENT": "STG"
+            }
         }
     },
     "variables": {
