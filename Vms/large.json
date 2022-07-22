@@ -157,10 +157,10 @@
             "log4": 512
         },
         "diskConfig_Standard_M192idms_v2": {
-            "shared": 4096,
-            "sap": 1024,
-            "backup1": 4096,
-            "backup2": 4096,
+            "shared": 3072,
+            "sap": 128,
+            "backup1": 3072,
+            "backup2": 3072,
             "data1": 1024,
             "data2": 1024,
             "data3": 1024,
