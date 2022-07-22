@@ -151,26 +151,26 @@
             "data4": 512,
             "data5": 512,
             "data6": 512,
-            "log1": 256,
-            "log2": 256,
-            "log3": 256,
-            "log4": 256
+            "log1": 512,
+            "log2": 512,
+            "log3": 512,
+            "log4": 512
         },
         "diskConfig_Standard_M192idms_v2": {
             "shared": 4096,
             "sap": 1024,
             "backup1": 4096,
             "backup2": 4096,
-            "data1": 2048,
-            "data2": 2048,
-            "data3": 2048,
-            "data4": 2048,
-            "data5": 2048,
-            "data6": 2048,
-            "log1": 2048,
-            "log2": 2048,
-            "log3": 2048,
-            "log4": 2048
+            "data1": 1024,
+            "data2": 1024,
+            "data3": 1024,
+            "data4": 1024,
+            "data5": 1024,
+            "data6": 1024,
+            "log1": 1024,
+            "log2": 1024,
+            "log3": 1024,
+            "log4": 1024
         }
     },
     "resources": [
