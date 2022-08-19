@@ -156,14 +156,7 @@
             "description": "IP Address for the HANA VM when Static IP Allocation Method has been selected"
           },
           "defaultValue": "10.212.250.151"
-        },
-        "AvailSetName": {
-          "type": "string",
-          "metadata": {
-            "description": "This is the name of the availability set to deploy the machine in"
-          },
-          "defaultValue": "hana-avail"
-        },                    
+        },                   
         "SubscriptionEmail": {
           "type": "string",
           "metadata": {
@@ -281,10 +274,7 @@
                     },
                     "StaticIP":{
                         "value": "[parameters('StaticIP')]"
-                    },
-                    "AvailSetName": {
-                        "value": "[parameters('AvailSetName')]"
-                      },                             
+                    },                            
                     "SubscriptionEmail":{
                         "value": "[parameters('SubscriptionEmail')]"
                     },
@@ -347,10 +337,7 @@
                     },
                     "StaticIP":{
                         "value": "[parameters('StaticIP')]"
-                    },
-                    "AvailSetName": {
-                        "value": "[parameters('AvailSetName')]"
-                      },                             
+                    },                           
                     "SubscriptionEmail":{
                         "value": "[parameters('SubscriptionEmail')]"
                     },
@@ -414,9 +401,6 @@
                     "StaticIP":{
                         "value": "[parameters('StaticIP')]"
                     },
-                    "AvailSetName": {
-                        "value": "[parameters('AvailSetName')]"
-                      },
                     "SubscriptionEmail":{
                         "value": "[parameters('SubscriptionEmail')]"
                     },
@@ -478,10 +462,7 @@
                     },
                     "StaticIP":{
                         "value": "[parameters('StaticIP')]"
-                    },
-                    "AvailSetName": {
-                        "value": "[parameters('AvailSetName')]"
-                      },                             
+                    },                             
                     "SubscriptionEmail":{
                         "value": "[parameters('SubscriptionEmail')]"
                     },
@@ -543,10 +524,7 @@
                     },
                     "StaticIP":{
                         "value": "[parameters('StaticIP')]"
-                    },
-                    "AvailSetName": {
-                        "value": "[parameters('AvailSetName')]"
-                      },                             
+                    },                             
                     "SubscriptionEmail":{
                         "value": "[parameters('SubscriptionEmail')]"
                     },
