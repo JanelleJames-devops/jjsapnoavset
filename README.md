@@ -1,9 +1,9 @@
 # SAP HANA ARM Installation
-This ARM template is used to install SAP HANA on a single VM running SUSE SLES 15 SP2.  For documentation on deploying a cluster of linux machines running HANA System Replication and Linux High Availability Extension, please see documentation here: [cluster deployment](https://github.com/AzureCAT-GSI/SAP-HANA-ARM-v2/blob/master/README-HSR.md). 
+This ARM template is used to install SAP HANA on a single VM running SUSE SLES 15 SP2.  For documentation on deploying a cluster of linux machines running HANA System Replication and Linux High Availability Extension, please see documentation here: [cluster deployment](https://github.com/JanelleJames-devops/jjsapnoavset/blob/master/README-HSR.md). 
 
 This template uses the Linux SKU for SAP. The template takes advantage of [Custom Script Extensions](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript) for the installation and configuration of the machine. This should be used only for the dev POC environment. This is not a production deployment.
 
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FJanelleJames-devops%2FDTPSGH-v3stg%2Fmaster%2Fazuredeploy.json)
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FJanelleJames-devops%2Fjjsapnoavset%2Fmaster%2Fazuredeploy.json)
 ## Machine Info
 The template was originally written to deploy HANA on one of the machines listed in the table below with the noted disk configuration.  Modification to disk sizes has been made per Deloitte SME and Microsoft SME suggestions of data=3xRAM, logs=2xRAM (with 2TB Max) and stripe sizes of 256 (data) and 64 (log) for the M64s machine image.  Disk sizes for other machine images is TBD.  The deployment takes advantage of Managed Disks, for more information on Managed Disks or the sizes of the noted disks can be found on [this](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#pricing-and-billing) page.
 
@@ -31,7 +31,7 @@ Installation media for SAP HANA should be downloaded and placed in the SapBits f
 
 There should be a folder inside your storage account container called SapBits:
 
-![SapBits Image](https://github.com/JanelleJames-devops/DTPSGH-v3stg/blob/master/media/Structure1.png)
+![SapBits Image](https://github.com/JanelleJames-devops/jjsapnoavset/blob/master/media/Structure1.png)
 
 ## Deploy the Solution
 ### Deploy from the Portal
